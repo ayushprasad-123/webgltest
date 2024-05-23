@@ -23,6 +23,9 @@ function main(){
   gl.enableVertexAttribArray(positionAttributeLocation);
   gl.bindBuffer(gl.ARRAY_BUFFER,positionBuffer);
   gl.vertexAttribPointer(positionAttributeLocation,2,gl.FLOAT,false,0,0);
+  var flag=new Image();
+  flag.src="./Flag-India.webp";
+  flag.onload=imgOnLoad;
   requestAnimationFrame(drawScene);
 }
 
@@ -67,8 +70,11 @@ function drawScene(now){
   if(loaded){
     drawRect(-1,1,2,2,[1,0.5,0]);
   }else if(1){
-    loaded=1;
+    drawRect(-1,1,2,2,[0,0,0]);
   }
   then=now;
   requestAnimationFrame(drawScene);
+}
+function imgOnLoad(){
+  loaded=1;
 }

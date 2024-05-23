@@ -64,6 +64,7 @@ function drawScene(now){
   gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
   delta=now-then;
   drawTri([[-1,-1],[-1,1],[1,-1]],[Math.sin(time),Math.cos(time),0],colorUniformLocation);
+  drawTri([[1,-1],[-1,1],[1,1]],[Math.sin(time),Math.cos(time),0],colorUniformLocation);
   requestAnimationFrame(drawScene);
   then=now;
 }

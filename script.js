@@ -1,5 +1,6 @@
 var gl,colorUniformLocation;
 var then=0;
+var loaded=0;
 main();
 function main(){
   var canvas=document.getElementById("c");
@@ -63,7 +64,11 @@ function drawScene(now){
   gl.canvas.height=gl.canvas.clientHeight;
   gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
   delta=now-then;
-  drawRect(-1,1,2,2,[1,0.5,0]);
-  requestAnimationFrame(drawScene);
+  if(loaded){
+    drawRect(-1,1,2,2,[1,0.5,0]);
+  }else if(1){
+    loaded=1;
+  }
   then=now;
+  requestAnimationFrame(drawScene);
 }

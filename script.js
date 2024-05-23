@@ -50,11 +50,11 @@ function createProgram(gl,vert,frag){
   gl.deleteProgram(program);
 }
 
-function drawTri(coords,col){
-  positions=coords[0].concat(coords[1],coords[2]);
+function drawRect(x,y,width,height,col){
+  var positions=[x,y,x,y-height,x-width,y-height,x,y,x-width,y-height,x+width,y];
   gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(positions),gl.STATIC_DRAW);
   gl.uniform4f(colorUniformLocation,col[0],col[1],col[2],1);
-  gl.drawArrays(gl.TRIANGLES,0,3);
+  gl.drawArrays(gl.TRIANGLES,0,6);
 }
 
 function drawScene(now){
@@ -63,8 +63,7 @@ function drawScene(now){
   gl.canvas.height=gl.canvas.clientHeight;
   gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
   delta=now-then;
-  drawTri([[-1,-1],[-1,1],[1,-1]],[Math.sin(time),Math.cos(time),0],colorUniformLocation);
-  drawTri([[1,-1],[-1,1],[1,1]],[Math.sin(time),Math.cos(time),0],colorUniformLocation);
+  drawRect(-1,1,2,2,[1,0.5,0]);
   requestAnimationFrame(drawScene);
   then=now;
 }

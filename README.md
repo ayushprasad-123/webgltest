@@ -1,4 +1,4 @@
-# WebGLDemo
+# WebGLTest
 ### By Ayush Prasad
 
 My demo workspace for learning WebGL. My current goal is to render a texture of the Indian Flag.

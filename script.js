@@ -51,7 +51,7 @@ function createProgram(gl,vert,frag){
 }
 
 function drawRect(x,y,width,height,col){
-  var positions=[x,y,x,y-height,x-width,y-height,x,y,x-width,y-height,x+width,y];
+  var positions=[x,y,x,y-height,x+width,y-height,x,y,x+width,y-height,x+width,y];
   gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(positions),gl.STATIC_DRAW);
   gl.uniform4f(colorUniformLocation,col[0],col[1],col[2],1);
   gl.drawArrays(gl.TRIANGLES,0,6);

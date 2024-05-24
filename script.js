@@ -66,7 +66,7 @@ function drawScene(now){
   gl.canvas.width=gl.canvas.clientWidth;
   gl.canvas.height=gl.canvas.clientHeight;
   gl.viewport(0,0,gl.canvas.width,gl.canvas.height);
-  delta=now-then;
+  var delta=now-then;
   if(loaded){
     drawRect(-1,1,2,2,[1,0.5,0]);
   }else if(1){
